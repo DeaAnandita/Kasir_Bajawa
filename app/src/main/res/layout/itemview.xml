@@ -26,7 +26,7 @@
             <TextView
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/imggD"
+                android:id="@+id/txtNext"
                 android:layout_width="wrap_content"
                 android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
@@ -48,14 +48,20 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtAtasNama"
+                    android:id="@+id/txtAtasNamaa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="deaAnandita"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_marginHorizontal="10dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtTime"
+                    android:textSize="15sp"
+                    android:text="deaAnandita"
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"

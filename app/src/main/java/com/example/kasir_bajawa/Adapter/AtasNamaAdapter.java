@@ -1,39 +1,38 @@
-package com.example.kasir_bajawa;
+package com.example.kasir_bajawa.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.kasir_bajawa.Model.AtasNamaModel;
+import com.example.kasir_bajawa.R;
 
 import java.util.ArrayList;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder>{
+public class AtasNamaAdapter extends RecyclerView.Adapter<AtasNamaAdapter.HomeViewHolder>{
 
-    private ArrayList<HomeModel> dataList;
+    private ArrayList<AtasNamaModel> dataList;
     View viewku;
 
-    public HomeAdapter(ArrayList<HomeModel> dataList) {
+    public AtasNamaAdapter(ArrayList<AtasNamaModel> dataList) {
         this.dataList = dataList;
     }
-
 
     @NonNull
     @Override
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        viewku = layoutInflater.inflate(R.layout.itemview, parent, false);
+        viewku = layoutInflater.inflate(R.layout.list_item_atasnama, parent, false);
         return new HomeViewHolder(viewku);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        holder.txtnama.setText(dataList.get(position).getNama());
-        holder.txtTime.setText(dataList.get(position).getTime());
+            holder.txtnama.setText(dataList.get(position).getNamaC());
     }
 
     @Override
@@ -41,17 +40,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         return dataList.size();
     }
 
-
     class HomeViewHolder extends RecyclerView.ViewHolder{
-        TextView txtNext, txtnama, txtTime;
-        CardView cardku;
+        private TextView txtnama;
 
         HomeViewHolder(View itemView) {
             super(itemView);
-            cardku = itemView.findViewById(R.id.cardku_D);
-            txtNext = itemView.findViewById(R.id.txtNext);
-            txtnama = itemView.findViewById(R.id.txtAtasNamaa);
-            txtTime = itemView.findViewById(R.id.txtTime);
+            txtnama = itemView.findViewById(R.id.txtNamaItem);
+
         }
     }
 

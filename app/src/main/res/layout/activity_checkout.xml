@@ -112,7 +112,7 @@
                 android:id="@+id/txtHarga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
+                android:layout_marginHorizontal="60dp"
                 android:layout_marginTop="10dp"
                 android:text="Harga"
                 android:textColor="@color/dark"
@@ -169,53 +169,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line3" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Tunai : "
-                android:textColor="@color/dark"
-                android:textStyle="bold"
-                app:layout_constraintRight_toLeftOf="@+id/txtTotals"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTotals1" />
 
-            <TextView
-                android:id="@+id/txtTunais"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:text="1600000"
-                android:textColor="@color/dark"
-                android:textStyle="bold"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTotals1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Kembalian : "
-                android:textColor="@color/dark"
-                android:textStyle="bold"
-                app:layout_constraintRight_toLeftOf="@+id/txtTunais"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTunais" />
-
-            <TextView
-                android:id="@+id/txtKembalian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:text="1600000"
-                android:textColor="@color/dark"
-                android:textStyle="bold"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTunais" />
 
             <View
                 android:id="@+id/view_line"
@@ -251,17 +205,17 @@
                 android:layout_marginTop="15dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtTotal"
-                tools:listitem="@layout/list_item_checkout" />
+                tools:listitem="@layout/list_item_atasnama" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHarga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="5dp"
                 app:layout_constraintLeft_toRightOf="@+id/rvNamaItem"
-                app:layout_constraintTop_toBottomOf="@id/txtTotal"
-                tools:listitem="@layout/list_item_checkout" />
+                app:layout_constraintTop_toBottomOf="@id/txtHarga"
+                tools:listitem="@layout/list_item_atasnama" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvJumlah"
@@ -271,7 +225,7 @@
                 android:layout_marginTop="15dp"
                 app:layout_constraintLeft_toRightOf="@+id/rvHarga"
                 app:layout_constraintTop_toBottomOf="@id/txtJumlah"
-                tools:listitem="@layout/list_item_checkout" />
+                tools:listitem="@layout/list_item_atasnama" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTotal"
@@ -281,7 +235,7 @@
                 android:layout_marginTop="15dp"
                 app:layout_constraintLeft_toRightOf="@+id/rvJumlah"
                 app:layout_constraintTop_toBottomOf="@id/txtTotal"
-                tools:listitem="@layout/list_item_checkout" />
+                tools:listitem="@layout/list_item_atasnama" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.kasir_bajawa;
+package com.example.kasir_bajawa.Model;
 
 public class HomeModel {
 

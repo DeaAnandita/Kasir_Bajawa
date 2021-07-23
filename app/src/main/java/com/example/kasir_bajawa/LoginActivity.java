@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 try {
                                     JSONObject PAYLOAD = response.getJSONObject("PAYLOAD");
                                     boolean sukses = PAYLOAD.getBoolean("respon");
-                                    String roleuser = PAYLOAD.getString("roleuser");
+//                                    String roleuser = PAYLOAD.getString("roleuser");
                                     Log.d("PAYLOAD", "onResponse: " + PAYLOAD);
                                     if (sukses) {
                                         sp.edit().putString("logged","user").apply();

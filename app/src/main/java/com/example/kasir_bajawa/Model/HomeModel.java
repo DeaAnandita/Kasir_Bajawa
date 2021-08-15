@@ -13,6 +13,10 @@ public class HomeModel {
         this.time = time;
     }
 
+    public HomeModel() {
+
+    }
+
 
     public String getTime() {
         return time;

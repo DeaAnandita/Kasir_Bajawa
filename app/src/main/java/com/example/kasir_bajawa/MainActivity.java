@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                                     HomeModel homeModel = new HomeModel();
                                     homeModel.setId(item.getString("id"));
                                     homeModel.setNama(item.getString("namaCustomer"));
+                                    homeModel.setTanggal(item.getString("tanggalNota"));
+                                    homeModel.setKodeNota(item.getString("kodeNota"));
                                     homeModel.setTime("09:00");
 
                                     homeModels.add(homeModel);

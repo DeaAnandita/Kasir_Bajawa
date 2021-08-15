@@ -1,5 +1,6 @@
 package com.example.kasir_bajawa.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kasir_bajawa.CheckoutActivity;
+import com.example.kasir_bajawa.LoginActivity;
+import com.example.kasir_bajawa.MainActivity;
 import com.example.kasir_bajawa.Model.HomeModel;
 import com.example.kasir_bajawa.R;
 
@@ -33,9 +37,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HomeViewHolder holder, int position) {
         holder.txtnama.setText(dataList.get(position).getNama());
         holder.txtTime.setText(dataList.get(position).getTime());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), CheckoutActivity.class);
+                intent.putExtra("Item Data", dataList.get(holder.getAdapterPosition()));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

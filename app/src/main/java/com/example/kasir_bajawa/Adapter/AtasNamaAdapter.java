@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kasir_bajawa.Model.AtasNamaModel;
+import com.example.kasir_bajawa.Model.ProdukModel;
 import com.example.kasir_bajawa.R;
 
 import java.util.ArrayList;
@@ -16,10 +17,12 @@ import java.util.ArrayList;
 public class AtasNamaAdapter extends RecyclerView.Adapter<AtasNamaAdapter.HomeViewHolder>{
 
     private ArrayList<AtasNamaModel> dataList;
+    private ArrayList<ProdukModel> productList;
     View viewku;
 
-    public AtasNamaAdapter(ArrayList<AtasNamaModel> dataList) {
+    public AtasNamaAdapter(ArrayList<AtasNamaModel> dataList, ArrayList<ProdukModel> productList) {
         this.dataList = dataList;
+        this.productList = productList;
     }
 
     @NonNull
@@ -32,7 +35,11 @@ public class AtasNamaAdapter extends RecyclerView.Adapter<AtasNamaAdapter.HomeVi
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-            holder.txtnama.setText(dataList.get(position).getNamaC());
+        for (int i = 0; i < productList.size(); i++) {
+            if (dataList.get(position).getNamaC().equals(productList.get(i).getKodeMakanan())) {
+                holder.txtnama.setText(productList.get(i).getNamaMakanan());
+            }
+        }
     }
 
     @Override

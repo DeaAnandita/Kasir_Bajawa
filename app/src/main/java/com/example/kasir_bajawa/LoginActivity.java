@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         String user = sp.getString("logged", "missing");
 
         if(user.equals("user")){
-            Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d("PAYLOAD", "onResponse: " + PAYLOAD);
                                     if (sukses) {
                                         sp.edit().putString("logged","user").apply();
-                                        Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                         progressDialog.dismiss();

@@ -8,6 +8,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +54,8 @@ public class CheckoutActivity extends AppCompatActivity {
     private TextView tvAtasNama, tvTanggal, tvTotal;
     private ProgressDialog progressDialog;
     private ArrayList mProdukList = new ArrayList<ProdukModel>();
+    private Button btnPost;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +69,13 @@ public class CheckoutActivity extends AppCompatActivity {
         tvAtasNama = findViewById(R.id.txtAtasNama);
         tvTanggal = findViewById(R.id.txtTanggal);
         tvTotal = findViewById(R.id.txtTotals);
+        btnPost = findViewById(R.id.btnPost);
 
         Intent intent = getIntent();
         HomeModel homeModel = intent.getParcelableExtra("Item Data");
         tvAtasNama.setText(homeModel.getNama());
         tvTanggal.setText(homeModel.getTanggal());
+        id = homeModel.getId();
 
         atasNamaModels = new ArrayList<>();
         hargaModels = new ArrayList<>();
@@ -196,5 +202,51 @@ public class CheckoutActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager3 = new LinearLayoutManager(CheckoutActivity.this);
         recyclerViewTotal.setLayoutManager(layoutManager3);
         recyclerViewTotal.setAdapter(totalAdapter);
+
+        btnPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndroidNetworking.post(BaseUrl.url + "editnota.php")
+                        .addBodyParameter("statusOrder", "selesai")
+                        .addBodyParameter("id", id)
+                        .setTag("test")
+                        .setPriority(Priority.MEDIUM)
+                        .build()
+                        .getAsJSONObject(new JSONObjectRequestListener() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    JSONObject hasil = response.getJSONObject("hasil");
+                                    boolean sukses = hasil.getBoolean("respon");
+                                    if (sukses){
+                                        Intent intent = new Intent(CheckoutActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }else {
+                                        Toast.makeText(CheckoutActivity.this, "gagal", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Toast.makeText(CheckoutActivity.this, "error", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+
+                                if (anError.getErrorCode() != 0) {
+                                    Log.d("TAG", "onError errorCode : " + anError.getErrorCode());
+                                    Log.d("TAG", "onError errorBody : " + anError.getErrorBody());
+                                    Log.d("TAG", "onError errorDetail : " + anError.getErrorDetail());
+                                } else {
+                                    Log.d("TAG", "onError errorDetail : " + anError.getErrorDetail());
+                                }
+                            }
+                        });
+
+            }
+        });
     }
 }

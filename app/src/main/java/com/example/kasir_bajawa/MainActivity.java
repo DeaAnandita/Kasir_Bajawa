@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                                     homeModel.setId(item.getString("id"));
                                     homeModel.setNama(item.getString("namaCustomer"));
                                     homeModel.setTanggal(item.getString("tanggalNota"));
-                                    homeModel.setKodeNota(item.getString("kodeNota"));
+                                    homeModel.setKodeNota(item.getString("id"));
                                     homeModel.setTime("09:00");
 
                                     homeModels.add(homeModel);
